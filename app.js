@@ -1,6 +1,7 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8080
 
 const appRouter = require('./routes')
 const errorHandler = require('./middlewares/errorHandler')
@@ -8,6 +9,4 @@ const errorHandler = require('./middlewares/errorHandler')
 app.use('/', appRouter)
 app.use(errorHandler)
 
-app.listen(PORT, () => {
-  console.log("Server started at port", PORT);
-})
+module.exports = app
