@@ -12,8 +12,7 @@ const index = async (req, res, next) => {
         params: { limit: 100 }
       })
       const characters = resp.data.data.results
-      const characterIds = characters.map(char => char.id)
-      const response = { ids: characterIds }
+      const response = characters.map(char => char.id)
       redis.set(cachedKey, JSON.stringify(response), 'EX', 3600)
       res.status(200).json(response)
     }
