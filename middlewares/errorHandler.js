@@ -7,7 +7,8 @@ const errorHandler = (err, req, res, next) => {
 
     default:
       res.status(500).json({
-        message: "Something went wrong"
+        message: "Something went wrong",
+        description: err.message
       })
   }
 }
