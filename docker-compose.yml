@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  api:
+    build: .
+    volumes:
+      - ".:/var/www/marvel-api"
+    ports:
+      - "8081:8080"
+    env_file:
+      - .env
+    environment:
+      - REDIS_URI=redis:6379
+  redis:
+    image: "redis:6.2"
+    ports:
+      - "5379:6379"
+    command: "redis-server"

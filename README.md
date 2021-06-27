@@ -1,6 +1,8 @@
-## HOW TO RUN
+# HOW TO RUN
 
-### RUN SERVER
+## RUN SERVER
+
+### MANUALLY
 
 - run `npm install`
 - rename `.env.example` to `.env` and change the value
@@ -8,7 +10,11 @@
 - run `npm start`
 - open `http://localhost:8080` in your browser
 
-### RUN TEST
+### DOCKER
+
+- run `docker compose up`
+
+## RUN TEST
 
 - go to root app folder
 - run `npm install`
