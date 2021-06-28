@@ -3,8 +3,6 @@ version: "3"
 services:
   api:
     build: .
-    volumes:
-      - ".:/var/www/marvel-api"
     ports:
       - "8081:8080"
     env_file:
