@@ -14,8 +14,8 @@ const index = async (req, res, next) => {
 
     const characters = resp.data.data.results
     const response = characters.map(char => char.id)
+    redis.set(req.cachedKey, JSON.stringify(response), 'EX', 3600)
     res.status(200).json(response)
-
   } catch (error) {
     console.log(error);
     next(error)
