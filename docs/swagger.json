@@ -1,0 +1,120 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is Marvel characters API",
+    "version": "1.0.0",
+    "title": "Xendit Marvel Characters",
+    "contact": {
+      "email": "kubido@gmail.com"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "marvel",
+      "description": "xendit marvel characters, rifki interview"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/characters": {
+      "get": {
+        "tags": [
+          "characters"
+        ],
+        "summary": "Get list marvel characters",
+        "description": "Get list of 100 marvel characters",
+        "operationId": "get characters",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "path",
+            "description": "Limit the result set to the specified size ",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/characters"
+            }
+          }
+        }
+      }
+    },
+    "/characters/{characterId}": {
+      "get": {
+        "tags": [
+          "characters"
+        ],
+        "summary": "Find marvel character by ID",
+        "description": "Should return information of a character, if character ID is not exists will return exceptions",
+        "operationId": "get characters by ID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "characterId",
+            "in": "path",
+            "description": "Marvel character ID",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/characterDetail"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "characters": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "example": [
+        1011334,
+        1017100,
+        1009144,
+        1010699,
+        1009146,
+        1016823,
+        1009148,
+        "..."
+      ]
+    },
+    "characterDetail": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1009220
+        },
+        "Name": {
+          "type": "string",
+          "example": "Captain America"
+        },
+        "Description": {
+          "type": "string",
+          "example": "Vowing to serve his country any way he could, young Steve Rogers took the super soldier serum to become America's one-man army. Fighting for the red, white and blue for over 60 years, Captain America is the living, breathing symbol of freedom and liberty."
+        }
+      }
+    }
+  }
+}
