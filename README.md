@@ -14,6 +14,11 @@
 
 - run `docker compose up`
 
+### DOCUMENTATION
+
+- start the server
+- open `http://localhost:8080/docs` in your browser
+
 ## RUN TEST
 
 - go to root app folder
